@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Admin Management</title>
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <h:link hreflang="http://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type="text/css"/>
+        <h:link hreflang="http://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet library="css" name="adminStyle.css"/>
+    </h:head>
+    <h:body>
+        <!-- Formulario -->
+        <h:form id="personasListForm">
+            <p:growl id="messages" showDetail="true"/>
+            <p:messages/>
+            <!-- PrimeFaces tabla -->
+            <p:dataTable id="personasDataTable" value="#{personBean.people}" var="persona" editable="true" rowKey="#{persona.personID}" 
+                         selectionMode="single">
+
+                <!-- Facelet Header -->
+                <f:facet name="header">
+                    Listado de Personas
+                </f:facet>
+
+                <p:column headerText="Id"><!-- Columna ID-->
+                    <h:outputText value="#{persona.personID}"/>
+                </p:column>
+
+                <p:column headerText="Nombre"><!-- Columna -->
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{persona.personName}"/>
+                        </f:facet>
+                        <f:facet name="input">
+                            <p:inputText value="#{persona.personName}"/>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+
+
+                <!-- Editar Row -->
+                <p:column headerText="Opciones" style="width: 50px;padding-bottom: 60px;">
+                    <p:rowEditor></p:rowEditor>
+                </p:column>
+
+                <!-- Evento editar c/AJAX -->
+                <p:ajax event="rowEdit" listener="#{personBean.editListener}"></p:ajax>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

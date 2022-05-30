@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>Dialogos</title>
+        <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'/>
+        <link href='http://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/dataStyle.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <p:commandButton value="VerGrafico" oncomplete="PF('graphicDialog').show();"
+                         onclick="PF('graphicDialog').initPosition();"/>
+        <p:commandButton value="VerRegresion/clasificacion" oncomplete="PF('regresion-clasificacionDialog').show();"
+                         onclick="PF('regresion-clasificacionDialog').initPosition();"/>
+        <p:commandButton value="VerArboles" oncomplete="PF('treeDialog').show();"
+                         onclick="PF('treeDialog').initPosition();"/>
+        <h:form>
+            <p:panelMenu class="test">
+                <p:submenu label="Graficación">
+                    <p:menuitem value="Histograma" style="font-size: 1rem;" 
+                                oncomplete="PF('graphicDialog').show();" onclick="PF('graphicDialog').initPosition();"/>
+                    <p:menuitem value="Grafica de dispersión" style="font-size: 1rem;"  
+                                oncomplete="PF('graphicDialog').show();" onclick="PF('graphicDialog').initPosition();"/>
+                    <p:menuitem value="Grafica de probabilidad" style="font-size: 1rem;" 
+                                oncomplete="PF('graphicDialog').show();" onclick="PF('graphicDialog').initPosition();"/>
+                    <p:menuitem value="Grafica de correlación" style="font-size: 1rem;"
+                                oncomplete="PF('graphicDialog').show();" onclick="PF('graphicDialog').initPosition();"/>
+                    <p:menuitem value="Cajas y bigote" style="font-size: 1rem;" 
+                                oncomplete="PF('graphicDialog').show();" onclick="PF('graphicDialog').initPosition();"/>
+                    <p:menuitem value="Grafica de pastel" style="font-size: 1rem;" 
+                                oncomplete="PF('graphicDialog').show();" onclick="PF('graphicDialog').initPosition();"/>
+                    <p:menuitem value="Grafica de barras" style="font-size: 1rem;" 
+                                oncomplete="PF('graphicDialog').show();" onclick="PF('graphicDialog').initPosition();"/>
+                </p:submenu>
+            </p:panelMenu>
+        </h:form>
+
+        <!-- GRAFICAS -->
+        <p:dialog class="dataDialog" id="dialog1" widgetVar="graphicDialog" modal="true" showEffect="fade"
+                  hideEffect="fade" resizable="false" draggable="true" style="background: white;">
+            <section class="personControl">
+                <h:form id="userControlForm1" class="userControlForm"><!-- Form -->
+
+                    <div class="personControlForm_inputGroup"><!-- Input Group -->
+                        <label class="personControlForm_label">Title: </label>
+                        <p:inputText id="titleGraphic" class="personControlForm_input"/>
+                    </div>
+
+                    <div class="personControlForm_inputGroup"><!-- Input Group -->
+                        <label class="personControlForm_label" >X label: </label>
+                        <p:inputText id="xlabel" class="personControlForm_input"/>
+                    </div>
+
+                    <div class="personControlForm_inputGroup"><!-- Input Group -->
+                        <label class="personControlForm_label" >Y label: </label>
+                        <p:inputText id="ylabel" class="personControlForm_input"/>
+                    </div>
+                    
+                    <div class="personControlForm_inputGroup"><!-- Input Group -->
+                        <label class="personControlForm_label" for="input-password">Columns: </label>
+                        <p:selectCheckboxMenu value="#{dataBean.selectedOptions}">
+                            <f:selectItems value="#{dataBean.data.csvColumn}"/>
+                        </p:selectCheckboxMenu>
+                    </div>
+                </h:form>
+            </section>
+        </p:dialog>
+        
+        <!-- REGRESION/CLASIFICACION -->
+        <p:dialog class="dataDialog" id="dialog2" widgetVar="regresion-clasificacionDialog" modal="true" showEffect="fade"
+                  hideEffect="fade" resizable="false" draggable="true" style="background: white;">
+            <section class="personControl">
+                <h:form id="userControlForm2" class="userControlForm"><!-- Form -->
+
+                    <div class="personControlForm_inputGroup"><!-- Input Group -->
+                        <label class="personControlForm_label" >Title: </label>
+                        <p:inputText id="titleTree" class="personControlForm_input"/>
+                    </div>
+
+                    <div class="personControlForm_inputGroup"><!-- Input Group -->
+                        <label class="personControlForm_label" >Kernel: </label>
+                        <p:selectCheckboxMenu>
+                            <f:selectItems value="#{dataBean.kernel}"/>
+                        </p:selectCheckboxMenu>
+                    </div>
+
+                    <div class="personControlForm_inputGroup"><!-- Input Group -->
+                        <label class="personControlForm_label" >Regulador: </label>
+                        <p:inputText id="regulador" class="personControlForm_input"/>
+                    </div>
+
+                    <div class="personControlForm_inputGroup"><!-- Input Group -->
+                        <label class="personControlForm_label" >Columns: </label>
+                        <p:selectCheckboxMenu value="#{dataBean.selectedOptions}">
+                            <f:selectItems value="#{dataBean.data.csvColumn}"/>
+                        </p:selectCheckboxMenu>
+                    </div>
+                </h:form>
+            </section>
+        </p:dialog>
+        
+        <!-- ARBOLES DE DECISION -->
+        <p:dialog class="dataDialog" id="dialog3" widgetVar="treeDialog" modal="true" showEffect="fade"
+                  hideEffect="fade" resizable="false" draggable="true" style="background: white;">
+            <section class="personControl">
+                <h:form id="userControlForm3" class="userControlForm"><!-- Form -->
+
+                    <div class="personControlForm_inputGroup"><!-- Input Group -->
+                        <label class="personControlForm_label" >Title: </label>
+                        <p:inputText id="titleRC" class="personControlForm_input"/>
+                    </div>
+
+                    <div class="personControlForm_inputGroup"><!-- Input Group -->
+                        <label class="personControlForm_label" >Criterion: </label>
+                        <p:selectCheckboxMenu>
+                            <f:selectItems value="#{dataBean.criterion}"/>
+                        </p:selectCheckboxMenu>
+                    </div>
+
+                    <div class="personControlForm_inputGroup"><!-- Input Group -->
+                        <label class="personControlForm_label" >Columns: </label>
+                        <p:selectCheckboxMenu value="#{dataBean.selectedOptions}">
+                            <f:selectItems value="#{dataBean.data.csvColumn}"/>
+                        </p:selectCheckboxMenu>
+                    </div>
+                </h:form>
+            </section>
+        </p:dialog>
+    </h:body>
+</html>

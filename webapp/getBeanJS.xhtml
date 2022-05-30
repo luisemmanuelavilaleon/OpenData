@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <script type="text/javascript" language="javascript">
+
+            function calledOnLoad() {
+                var p_1 = '<h:outputText value="#{personBean.people.get(0)}"/>';
+                var p_2 = '<h:outputText value="#{personBean.people.get(1)}"/>';
+                var ot = document.getElementById("formId:textId");
+                ot.textContent = "Parameters from bean are:" + p_1 + " and " + p_2;
+            }
+            
+            var users = [];
+            for (var i = 0; i < users.length; i++) {
+                var user = users[i];
+                alert(user.id);
+                alert(user.firstName);
+            }
+        </script>   
+
+
+    </h:head>
+    <h:body onload="calledOnLoad();">
+        <h:form id="formId">
+            <h:outputText id="textId" value=""/>
+            <h:commandButton value="Name" onclick="getInfo();"/>
+
+        </h:form>
+    </h:body>
+</html>
+

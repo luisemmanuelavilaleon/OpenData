@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Open Data</title>
+        <h:outputStylesheet library="css" name="loginStyle.css"/>
+        <link href="http://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type="text/css"/>
+        <link href="http://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <section class="login">
+            <div class="loginHeader">
+                <h:graphicImage class="loginHeader_logo" name="img/logo.png"/>
+                <h1 class="loginHeader_tittle">
+                    Open Data 
+                </h1>
+            </div>
+            <h:form class="loginForm" onsubmit="">
+                <h1 class="loginForm_subtitle loginForm_subtitle-sb1">
+                    Inicia sesión
+                </h1> 
+                <h1 class="loginForm_subtitle loginForm_subtitle-sb2">
+                    Bienvenido, rellena los formatos para comenzar
+                </h1>
+                <style>
+                    @media only screen and (max-width:690px) {
+                        .loginForm_inputGroup {
+                            justify-content: center;
+                        }
+                    }
+                </style>
+                <div class="loginForm_inputGroup">
+                    <p:inputText id="inputLog-user" 
+                                 class="loginForm_input" required="true" 
+                                 placeholder="Usuario"
+                                 value="#{userBean.userSelect.userAccountName}"/>
+                </div>
+                
+                <div class="loginForm_inputGroup">
+                    <p:password id="inputLog-password" class="loginForm_input"  required="true" 
+                                placeholder="Contraseña"
+                                value="#{userBean.userSelect.userPassword}"/>
+                </div>
+                <p:tooltip/>
+                <div class="loginForm_inputGroup loginForm_inputGroup-submit">
+                    <p:commandButton class="loginForm_input-submit" value="Login" action="#{userBean.login}"/>
+                    <a class="loginForm_input-forgot"  href="https://cutt.ly/hFlsAAe">Olvidaste tu contraseña?</a>
+                </div>
+                <p:messages id="messages" showDetail="false" closable="true">
+                    <p:autoUpdate/>
+                </p:messages>
+            </h:form>
+        </section>
+    </h:body>
+</html>
+

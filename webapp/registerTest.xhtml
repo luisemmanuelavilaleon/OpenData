@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Admin Management</title>
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <link href="http://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type="text/css"/> 
+        <link href="http://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" type="text/css"/> 
+        <meta http-equiv="Expires" content="0"/>
+        <meta http-equiv="Last-Modified" content="0"/>
+        <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate"/>
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <h:outputStylesheet library="css" name="adminStyle.css"/>
+    </h:head>
+    <h:body>
+        <section class="personControl">
+            <div class="personHeader">
+                <h1 style="font-size: 2rem;">
+                    <p:commandButton icon="pi pi-arrow-left" action="/OpenData/faces/index.xhtml" 
+                                     styleClass="rounded-button ui-button-secondary" />
+                    Admin Manager
+                </h1>
+                <h3>
+                    Add user register
+                </h3>
+            </div>
+            <!-- Form Add Employee-->
+            <h:form class="personControlForm">
+
+                <!-- Form -->
+                <div class="personControlForm_inputGroup"><!-- Input Group -->
+                    <label class="personControlForm_label" for="input-name" >Name:</label>
+                    <p:inputText id="input-name" class="personControlForm_input" required="true" 
+                                 maxlength="30" size="40" 
+                                 placeholder="Name"
+                                 value="#{personBean.personaSelected.personName}">
+                        <p:keyFilter regEx="/[a-zA-z]/i"/>
+                    </p:inputText>
+                </div>
+
+                <div class="personControlForm_inputGroup"><!-- Input Group -->
+                    <label class="personControlForm_label" for="input-lastName">Last Name:</label>
+                    <p:inputText id="input-lastName" class="personControlForm_input" required="true" 
+                                 maxlength="30" size="40" 
+                                 placeholder="Last Name"
+                                 value="#{personBean.personaSelected.personLastName}">
+                        <p:keyFilter regEx="/[a-zA-z]/i"/>
+                    </p:inputText>    
+                </div>
+
+                <div class="personControlForm_inputGroup">
+                    <label class="personControlForm_label" for="input-gender">Gender:</label>
+                    <p:selectOneMenu id="input-gender" value="#{personBean.personaSelected.personGender}" class="personControlForm_input" required="true"
+                                     maxlength="30">
+                        <f:selectItem itemLabel="Women" itemValue="F"/>
+                        <f:selectItem itemLabel="Men" itemValue="M"/>
+                        <f:selectItem itemLabel="Other" itemValue="U"/>
+                    </p:selectOneMenu>
+                </div>
+
+                <div class="personControlForm_inputGroup"><!-- Input Group -->
+                    <label class="personControlForm_label" for="input-age">Age:</label>
+                    <p:spinner id="input-age" class="personControlForm_input" value="#{personBean.personaSelected.personAge}" required="true" maxlength="30" size="40"  min="18" max="60"/>
+                </div>
+
+                <div class="personControlForm_inputGroup"><!-- Input Group -->
+                    <label class="personControlForm_label" for="input-curp">Curp:</label>
+                    <p:inputText id="input-curp" class="personControlForm_input" required="true" 
+                                 maxlength="30" size="40" 
+                                 placeholder="Curp"
+                                 value="#{personBean.personaSelected.personCurp}">
+                        <p:keyFilter regEx="/[a-zA-z0-9]/i"/>
+                    </p:inputText>    
+                </div>
+                <div class="personControlForm_inputGroup"><!-- Input Group -->
+                    <label class="personControlForm_label" for="input-rfc">RFC:</label>
+                    <p:inputText id="input-rfc" class="personControlForm_input" required="true" 
+                                 maxlength="30" size="40" 
+                                 placeholder="RFC"
+                                 value="#{personBean.personaSelected.personRFC}">
+                        <p:keyFilter regEx="/[a-zA-z0-9]/i"/>
+                    </p:inputText>    
+                </div>
+                <div class="personControlForm_inputGroup"><!-- Input Group -->
+                    <label class="personControlForm_label" for="input-email">Email:</label>
+                    <p:inputText id="input-email" class="personControlForm_input" required="true" 
+                                 maxlength="30" size="40" 
+                                 placeholder="Email"
+                                 value="#{personBean.personaSelected.personEmail}">
+                        <p:keyFilter regEx="/[a-zA-z0-9@.]/i"/>
+                    </p:inputText>    
+                </div>
+                <div class="personControlForm_inputGroup"><!-- Input Group -->
+                    <label class="personControlForm_label" for="input-phone">Phone:</label>
+                    <p:inputText id="input-phone" class="personControlForm_input" required="true" 
+                                 maxlength="30" size="40" 
+                                 placeholder="Phone"
+                                 value="#{personBean.personaSelected.personPhone}">
+                        <p:keyFilter mask="num" />
+                    </p:inputText>    
+                </div>
+                <div class="personControlForm_inputGroup"><!-- Input Group -->
+                    <label class="personControlForm_label" for="input-country">Country:</label>
+                    <p:inputText id="input-country" class="personControlForm_input" required="true" 
+                                 maxlength="30" size="40" 
+                                 placeholder="Country"
+                                 value="#{personBean.personaSelected.personCountry}">
+                        <p:keyFilter regEx="/[a-zA-z]/i"/>
+                    </p:inputText>    
+                </div>
+
+                <div class="personControlForm_inputGroup"><!-- Input Group -->
+                    <label class="personControlForm_label" for="input-city">City:</label>
+                    <p:inputText id="input-city" class="personControlForm_input" required="true" 
+                                 maxlength="30" size="40" 
+                                 placeholder="City"
+                                 value="#{personBean.personaSelected.personCity}">
+                        <p:keyFilter regEx="/[a-zA-z]/i"/>
+                    </p:inputText>    
+                </div>
+                <div class="personControlForm_inputGroup"><!-- Input Group -->
+                    <label class="personControlForm_label" for="input-postalCode">Postal Code:</label>
+                    <p:inputText id="input-postalCode" class="personControlForm_input" required="true" 
+                                 maxlength="30" size="40" 
+                                 placeholder="Postal Code"
+                                 value="#{personBean.personaSelected.personPostalCode}">
+                        <p:keyFilter mask="num"/>
+                    </p:inputText>    
+                </div>
+
+                <style>
+                    .ui-inputfield{
+                        width: 100%;
+                    }
+                </style>
+
+                <div class="personControlForm_inputGroup"><!-- Input Group -->
+                    <label class="personControlForm_label" for="input-birthDate">Birth Date:</label>
+                    <p:datePicker id="input-birthDate" class="personControlForm_input" required="true" pattern="MM/dd/yyyy" value="#{personBean.personaSelected.personBirthDate}" showButtonBar="true">
+
+                    </p:datePicker>
+                </div>
+
+                <div class="personControlForm_inputGroup"><!-- Input Group -->
+                    <label class="personControlForm_label" for="input-hiringDate">Hiring Date:</label>
+                    <p:datePicker id="input-hiringDate" class="personControlForm_input" required="true" pattern="MM/dd/yyyy"  value="#{personBean.personaSelected.personHiringDate}" showButtonBar="true">
+
+                    </p:datePicker>
+                </div>
+
+                <div class="personControlForm_inputGroup-submit">
+                    <p:commandButton class="personControlForm_input-submit" value="Add" action="#{personBean.addPersonListener()}"/>
+                </div>
+            </h:form>
+        </section>
+
+        <!-- Table List Employees-->
+        <section class="personView">
+            <h:form id="peopleDataTableForm">
+                <p:growl id="msgs" showDetail="true"/>
+                <p:dataTable id="personDataTable" class="personViewTable" value="#{personBean.people}" var="person" 
+                             editable="true" rowKey="#{person.personID}" selection="#{personBean.personaSelected}" 
+                             selectionMode="single" scrollable="true" reflow="true" resizeMode="true" resizableColumns="true">
+
+                    <p:column class="personViewTable_column" headerText="ID">
+                        <h:outputText value="#{person.personID}" />
+                    </p:column>
+
+                    <p:column class="personViewTable_column" headerText="Name">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{person.personName}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{person.personName}" converterMessage="Entrada invalida"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column class="personViewTable_column" headerText="Last Name">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{person.personLastName}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{person.personLastName}"  converterMessage="Entrada invalida"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column class="personViewTable_column" headerText="Gender" >
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{person.personGender}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{person.personGender}"  converterMessage="Entrada invalida"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column class="personViewTable_column" headerText="Age" >
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{person.personAge}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{person.personAge}"  converterMessage="Entrada invalida"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column class="personViewTable_column" headerText="CURP" >
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{person.personCurp}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{person.personCurp}"  converterMessage="Entrada invalida"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column class="personViewTable_column" headerText="RFC" >
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{person.personRFC}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{person.personRFC}" converterMessage="Entrada invalida"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column class="personViewTable_column" headerText="Email" >
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{person.personEmail}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{person.personEmail}" converterMessage="Entrada invalida"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column class="personViewTable_column" headerText="Phone" >
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{person.personPhone}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{person.personPhone}"  converterMessage="Entrada invalida"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column class="personViewTable_column" headerText="Country">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{person.personCountry}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{person.personCountry}" converterMessage="Entrada invalida"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column class="personViewTable_column" headerText="City" >
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{person.personCity}"/>
+                            </f:facet>
+                            <!--CHANGE TO FIT-CONTENT-->
+                            <f:facet name="input">
+                                <p:inputText value="#{person.personCity}" converterMessage="Entrada invalida"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column class="personViewTable_column" headerText="Postal Code" >
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{person.personPostalCode}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{person.personPostalCode}"  converterMessage="Entrada invalida"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column style="width: 20px">
+                        <p:rowEditor />
+                    </p:column>
+
+                    <p:ajax event="rowEdit" listener="#{personBean.editListener}" update=":peopleDataTableForm:msgs" />
+
+                </p:dataTable> 
+                <p:contextMenu for="personDataTable">
+                    <p:menuitem value="Delete" update="peopleDataTableForm:personDataTable"
+                                icon="pi pi-trash"
+                                actionListener="#{personBean.deletePersonListener()}" />
+                    <p:menuitem value="Add User" update="userControlForm" icon="pi pi-user-plus"
+                                oncomplete="PF('userDialog').show()" />
+
+                    <p:menuitem value="See users" update="usersDataTableAdmin" icon="pi pi-search-plus"
+                                oncomplete="PF('usersDialog').show()"/>
+                </p:contextMenu>                       
+            </h:form>
+
+            <!-- Dialog List Users-->
+            <p:dialog id="usersDlg" widgetVar="usersDialog" modal="true" showEffect="fade"
+                      hideEffect="fade" resizable="false">
+                <section class="personView">
+                    <h:form id="usersDataTableAdmin">
+                        <p:growl id="msgs" showDetail="true"/>
+
+                        <p:dataTable id="usersDataTable" class="personViewTable" value="#{personBean.personaSelected.userList}" var="user" editable="true"  rowKey="#{user.userID}" 
+                                     selection="#{personBean.userSelect}" selectionMode="single" scrollable="true" reflow="true" resizeMode="true">
+
+                            <p:column class="personViewTable_column" headerText="Person ID:">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{user.personID.personID}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{user.personID.personID}"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column class="personViewTable_column" headerText="User ID:">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{user.userID}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{user.userID}"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column class="personViewTable_column" headerText="AccountName:">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{user.userAccountName}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{user.userAccountName}"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column class="personViewTable_column" headerText="Rol">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{user.userRol}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{user.userRol}"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </section>
+            </p:dialog>
+
+            <!-- Dialog Add User -->
+            <p:dialog id="personaDlg" widgetVar="userDialog" modal="true" showEffect="fade"
+                      hideEffect="fade" resizable="false">
+                <section class="personControl">
+                    <h:form id="userControlForm" class="userControlForm"><!-- Form -->
+                        <p:growl id="msgs" showDetail="true"/>
+                        
+                        <div class="personControlForm_inputGroup"><!-- Input Group -->
+                            <label style="font-size: 2rem;margin-bottom: 2rem;text-align: center; " class="personControlForm_label">Add User</label>
+                        </div>
+
+                        <div class="personControlForm_inputGroup"><!-- Input Group -->
+                            <label class="personControlForm_label" for="input-personID">Person ID: </label>
+                            <p:inputText id="input-personID" class="personControlForm_input" 
+                                         value="#{personBean.personaSelected.personID}">
+                            </p:inputText> 
+                        </div>
+
+                        <div class="personControlForm_inputGroup"><!-- Input Group -->
+                            <label class="personControlForm_label" for="input-username">Username: </label>
+                            <p:inputText id="input-username" class="personControlForm_input" required="true" 
+                                         maxlength="30" size="40" 
+                                         value="#{personBean.userSelect.userAccountName}">
+                                <p:keyFilter regEx="/[a-zA-z0-9]/i"/>
+                            </p:inputText>    
+                        </div>
+
+                        <div class="personControlForm_inputGroup"><!-- Input Group -->
+                            <label class="personControlForm_label" for="input-password">Password: </label>
+                            <p:inputText id="input-password" class="personControlForm_input" required="true" 
+                                         maxlength="30" size="40" 
+                                         value="#{personBean.userSelect.userPassword}">
+                                <p:keyFilter regEx="/[a-zA-z0-9]/i"/>
+                            </p:inputText>    
+                        </div>
+
+                        <div class="personControlForm_inputGroup"><!-- Input Group -->
+                            <label class="personControlForm_label" for="input-rol">Rol: </label>
+                            <p:inputText id="input-rol" class="personControlForm_input" required="true" 
+                                         maxlength="30" size="40" 
+                                         value="#{personBean.userSelect.userRol}">
+                                <p:keyFilter regEx="/[a-zA-z]/i"/>
+                            </p:inputText>    
+                        </div>
+                        <div class="personControlForm_inputGroup-submit" style="text-align: center;"> 
+                            <p:commandButton type="submit" class="personControlForm_input-submit" value="Add"
+                                             async="true" ajax="true" actionListener="#{personBean.addUserListener}" 
+                                             update="peopleDataTableForm:personDataTable,usersDataTableAdmin:usersDataTable" oncomplete="PF('userDialog').hide();" />
+                        </div>
+                    </h:form>
+                </section>
+            </p:dialog>
+        </section>
+    </h:body>
+</html>

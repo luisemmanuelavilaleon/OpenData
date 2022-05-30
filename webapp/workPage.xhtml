@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>Hoja de trabajo</title>
+        <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'/>
+        <link href='http://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'/>
+        <h:outputStylesheet library="css" name="workPageStyle.css"/>
+        <script src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-3.5.1.js" type="text/javascript"/>
+        <script src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.dataTables.min.js" type="text/javascript"/>
+    </h:head>
+    <h:body>
+        <div class="sideMenu">
+            <ul>
+                <h:form class="sideMenuC" style="display: flex">
+                    <span class="iconLogo"><i class="pi pi-file"></i></span>
+                    <p:panelMenu class="test">
+                        <p:submenu label="Archivo">
+                            <p:menuitem value="Cargar archivo" style="font-size: 1rem;"/>
+                            <p:menuitem value="Guardar archivo" style="font-size: 1rem;"/>
+                            <p:submenu label="Exportar dataset" style="font-size: 1rem;">
+                                <p:menuitem value="Guardar PDF" style="font-size: 1rem;"/>
+                                <p:menuitem value="Guardar CSV" style="font-size: 1rem;"/>
+                                <p:menuitem value="Guardar XLS" style="font-size: 1rem;"/>
+                                <p:menuitem value="Guardar TXT" style="font-size: 1rem;"/>
+                            </p:submenu>
+                            <p:submenu label="Exportar reporte" style="font-size: 1rem;">
+                                <p:menuitem value="Guardar PDF" style="font-size: 1rem;"/>
+                            </p:submenu>
+                        </p:submenu>
+                    </p:panelMenu>
+                </h:form>
+
+                <h:form class="sideMenuC" style="display: flex">
+                    <span class="iconLogo"><i class="pi pi-chart-bar"></i></span>
+                    <p:panelMenu class="test">
+                        <p:submenu label="Graficación">
+                            <p:menuitem value="Histograma" style="font-size: 1rem;"/>
+                            <p:menuitem value="Grafica de dispersión" style="font-size: 1rem;"/>
+                            <p:menuitem value="Grafica de probabilidad" style="font-size: 1rem;"/>
+                            <p:menuitem value="Grafica de correlación" style="font-size: 1rem;"/>
+                            <p:menuitem value="Cajas y bigote" style="font-size: 1rem;"/>
+                            <p:menuitem value="Grafica de pastel" style="font-size: 1rem;"/>
+                            <p:menuitem value="Grafica de barras" style="font-size: 1rem;"/>
+                        </p:submenu>
+                    </p:panelMenu>
+                </h:form>
+
+                <h:form class="sideMenuC" style="display: flex; padding-bottom: 12rem;">
+                    <span class="iconLogo"><i class="pi pi-percentage"></i></span>
+                    <p:panelMenu class="test">
+                        <p:submenu label="Estadistica">
+                            <p:menuitem value="Resumen grafico" style="font-size: 1rem;"/>
+                            <p:menuitem value="Estadistica descriptiva" style="font-size: 1rem;"/>
+                            <p:menuitem value="Pruebas T y normales" style="font-size: 1rem;"/>
+                            <p:menuitem value="Pruebas de normalidad" style="font-size: 1rem;"/>
+                            <p:menuitem value="Pruebas de correlación" style="font-size: 1rem;"/>
+                            <p:menuitem value="ANOVA" style="font-size: 1rem;"/>
+                            <p:menuitem value="Chi-cuadrada" style="font-size: 1rem;"/>
+                            <p:menuitem value="Regresión" style="font-size: 1rem;"/>
+                            <p:menuitem value="Clasificación" style="font-size: 1rem;"/>
+                        </p:submenu>
+                    </p:panelMenu>
+                </h:form>
+                <ul style="position: relative">
+                    <li style="position: absolute; top: 300px;">
+                        <a href="#">
+                            <span class="iconLogo" ><i class="pi pi-power-off" style="padding-left: 0px;"></i></span>
+                            <span style="font-size: 1.5rem; padding-top: 1rem; padding-left: 20px;">Cerrar Sesión</span>
+                        </a>
+                    </li>  
+                </ul>
+            </ul>
+        </div>
+        <h:form id="form" class="interior">
+            <div class="displayImg">
+                aaaaaaaaaa
+            </div>
+            <p:growl id="msgs" showDetail="true"/>
+            <div>
+                aaaaaaaa
+            </div>
+        </h:form>
+    </h:body>
+</html>

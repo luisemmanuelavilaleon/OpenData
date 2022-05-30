@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Dataset</title>
+        <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'/>
+        <link href='http://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'/>
+        <meta http-equiv="Expires" content="0"/>
+        <meta http-equiv="Last-Modified" content="0"/>
+        <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate"/>
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <h:outputStylesheet library="css" name="workPageStyle.css"/>
+
+    </h:head>
+    <h:body>
+        <p:dataTable id="table" value="#{dataBean.dat}" var="data" selectionMode="multiple" 
+                     rowKey="#{data.serial_No}" selection="#{dataBean.dataSelected}">                  
+            
+            <p:column headerText="Serial No." filterBy="#{data.serial_No}" filterMatchMode="contains">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{data.serial_No}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{data.serial_No}" style="width: 100%;" converterMessage="Entrada invalida"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="GRE Score" filterBy="#{data.GRE_Score}" filterMatchMode="contains">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{data.GRE_Score}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{data.GRE_Score}" style="width: 100%;" converterMessage="Entrada invalida"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            <p:column headerText="TOEFL Score" filterBy="#{data.TOEFL_Score}" filterMatchMode="contains">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{data.TOEFL_Score}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{data.TOEFL_Score}" style="width: 100%;" converterMessage="Entrada invalida"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            <p:column headerText="University Rating" filterBy="#{data.university_rating}" filterMatchMode="contains">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{data.university_rating}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{data.university_rating}" style="width: 100%;" converterMessage="Entrada invalida"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            <p:column headerText="SOP" filterBy="#{data.SOP}" filterMatchMode="contains">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{data.SOP}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{data.SOP}" style="width: 100%;" converterMessage="Entrada invalida"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            <p:column headerText="LOR" filterBy="#{data.LOR}" filterMatchMode="contains">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{data.LOR}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{data.LOR}" style="width: 100%;" converterMessage="Entrada invalida"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            <p:column headerText="CGPA" filterBy="#{data.CGPA}" filterMatchMode="contains">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{data.CGPA}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{data.CGPA}" style="width: 100%;" converterMessage="Entrada invalida"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            <p:column headerText="Research" filterBy="#{data.research}" filterMatchMode="contains">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{data.research}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{data.research}" style="width: 100%;" converterMessage="Entrada invalida"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+            <p:column headerText="Chance of admit" filterBy="#{data.chance_of_admit}" filterMatchMode="contains">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{data.chance_of_admit}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText value="#{data.chance_of_admit}" style="width: 100%;" converterMessage="Entrada invalida"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+        </p:dataTable>
+    </h:body>
+</html>
